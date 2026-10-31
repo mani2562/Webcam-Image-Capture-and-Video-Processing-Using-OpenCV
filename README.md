@@ -43,26 +43,89 @@ Resize the frame and rotate it using OpenCV functions, then display the processe
 ## 💻 Program
 
 ### Developed By:
-**Name:** ____________________________  
+### Name:** MANIKANDAN G
+### Register No:212225040224
+~~~
+import cv2
+import matplotlib.pyplot as plt
+from IPython.display import clear_output
+import time
+cap = cv2.VideoCapture(0)
+ret, frame = cap.read()
+if ret:
+    cv2.imwrite("rosh pic.jpg", frame)
+cap.release()
 
-### Register No:
-____________________________  
+captured_image = cv2.imread('rosh pic.jpg')
 
----
 
+## Your Code Here##
+plt.imshow(captured_image[:,:,::-1])
+plt.title('Captured Frame')
+plt.axis('off')
+plt.show()
+
+cap = cv2.VideoCapture(0)
+
+for i in range(50):
+    ret, frame = cap.read()
+    if not ret:
+        break
+    frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    clear_output(wait=True)
+    plt.imshow(frame_rgb)
+    plt.axis('off')
+    plt.show()
+    time.sleep(0.05)
+
+cap.release()
+
+cap = cv2.VideoCapture(0)
+
+for i in range(50):
+    ret, frame = cap.read()
+    if not ret:
+        break
+    resized_frame = cv2.resize(frame, (100, 150))  # Resize to 320x240
+    frame_rgb = cv2.cvtColor(resized_frame, cv2.COLOR_BGR2RGB)
+    clear_output(wait=True)
+    plt.imshow(frame_rgb)
+    plt.axis('off')
+    plt.show()
+    time.sleep(0.05)
+
+cap.release()
+
+
+cap = cv2.VideoCapture(0)
+
+for i in range(50):
+    ret, frame = cap.read()
+    if not ret:
+        break
+    rotated_frame = cv2.rotate(frame, cv2.ROTATE_90_CLOCKWISE)
+    frame_rgb = cv2.cvtColor(rotated_frame, cv2.COLOR_BGR2RGB)
+    clear_output(wait=True)
+    plt.imshow(frame_rgb)
+    plt.axis('off')
+    plt.show()
+    time.sleep(0.05)
+
+cap.release()
+~~~
 ## Output
 
 ### i) Write the frame as JPG image
-Captured image is saved as `captured_image.jpg`
+<img width="920" height="751" alt="image" src="https://github.com/user-attachments/assets/19956769-fd1d-4ef5-b9ff-faff9120c2b9" />
 
 ### ii) Display the video
-Live webcam video is displayed
+<img width="901" height="683" alt="image" src="https://github.com/user-attachments/assets/ee2ef3bb-cdf1-4176-b9eb-765a0b70c1c9" />
 
 ### iii) Display the video by resizing the window
-Video is shown in resized resolution (640 × 480)
+<img width="457" height="666" alt="image" src="https://github.com/user-attachments/assets/cecdac91-133a-4315-ade7-5dd3b006234d" />
 
 ### iv) Rotate and display the video
-Video is displayed after rotation (90° clockwise)
+<img width="528" height="623" alt="image" src="https://github.com/user-attachments/assets/54e5c43f-ba21-488f-8997-24cce4fec811" />
 
 ---
 
